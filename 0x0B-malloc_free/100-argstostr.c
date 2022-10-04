@@ -2,49 +2,44 @@
 #include <stdlib.h>
 
 /**
- * argstostr - concatenates all the arguments of a program.
- * @ac: argument count.
- * @av: argument vector.
- *
- * Return: pointer of an array of char
+ * argstostr - A function that concatenates all arguments of your program
+ * @ac: number of arguments
+ * @av: array containing arguments
+ * Return: A pointer to string that containing all arguments
+ * or NULL if ac == 0, if av == NULL, or upon failure
  */
 char *argstostr(int ac, char **av)
 
 {
-	char *aout;
+	char *new_str;
+	int len = 0, i = 0, j, k = 0;
 
 
-	int c, i, j, ia;
-
-
-	if (ac == 0)
+	if (ac <= 0 || av == NULL)
 		return (NULL);
-	for (c = i = 0; i < ac; i++)
+
+
+	for (; i < ac; i++)
 	{
-		if (av[i] == NULL)
-			return (NULL);
-		for (j = 0; av[i][j] != '\0'; j++)
-			c++;
-		c++;
+		for (j = 0; av[i][j]; j++)
+			len++;
+		len++;
 	}
-		aout = malloc((c + 1) * sizeof(char));
-		if (aout == NULL)
+	len++;
+	new_str = malloc(len * sizeof(char));
+	if (new_str == NULL)
+		return (NULL);
+
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j]; j++)
 		{
-			free(aout);
-			return (NULL);
+			new_str[k] = av[i][j];
+			k++;
 		}
-		for (i = j = ia = 0; ia < c; j++, ia++)
-		{
-			if (av[i][j] == '\0')
-			{
-				aout[ia] = '\n';
-				i++;
-				ia++;
-				j = 0
-			}
-			if (ia < c - 1)
-				aout[ia] = av[i][j];
-		}
-		aout[ia] = '\0';
-	return (aout);
+		new_str[k] = '\n';
+		k++;
+	}
+	new_str[k] = '\0';
+	return (new_str);
 }
