@@ -1,52 +1,44 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * str_concat - A function that concatenates two strings
- * @s1: An input pointer of the first string
- * @s2: An input pointer of the second string
- * Return: Apointer to concatened strings or NULL if it str is NULL
- */
+* str_concat - concatenates two strings
+*
+* @s1: input array 1
+* @s2: input array 2
+* Return: pointer to array
+*/
 char *str_concat(char *s1, char *s2)
-{
-	char *new_str, *starts1, *starts2;
-	int i = 0, lens1 = 0, lens2 = 0;
 
-	starts1 = s1;
-	starts2 = s2;
+{
+	char *p;
+	int i, size1 = 0, size2 = 0;
+
+
 	if (s1 == NULL)
-		s1 = "";
-	while (*s1)
-	{
-		lens1++;
-		s1++;
-	}
-	s1 = starts1;
+	{ s1 = ""; }
 	if (s2 == NULL)
-		s2 = "";
-	while (*s2)
+	{ s2 = ""; }
+	while (s1[size1] != '\0')
 	{
-		lens2++;
-		s2++;
+	size1++;
 	}
-	s2 = starts2;
-	new_str = malloc(sizeof(char) * (lens1 + lens2 + 1));
-	starts1 = new_str;
-	if (new_str == NULL)
-		return (NULL);
-	for (; i < (lens1 + lens2); i++)
+	while (s2[size2] != '\0')
 	{
-		if (i < lens1)
-		{
-			new_str[i] = *s1;
-			s1++;
-		}
-		else
-		{
-			new_str[i] = *s2;
-			s2++;
-		}
+	size2++;
 	}
-	new_str[i] = '\0';
-	return (starts1);
-ii}
+	p = malloc((size1 + size2 + 1) * sizeof(char));
+	if (p == NULL)
+	return (0);
+	for (i = 0; i < size1; i++)
+	{
+		p[i] = s1[i];
+	}
+	for (; i < (size1 + size2); i++)
+	{
+		p[i] = s2[i - size1];
+	}
+	p[i] = '\0';
+	return (p);
+}
