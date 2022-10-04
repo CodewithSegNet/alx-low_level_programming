@@ -1,56 +1,52 @@
 #include "main.h"
 #include <stdlib.h>
 
-/*
- * alloc_grid - returns a pointer to a 2 dimensional array of integers.
- * @width: width of the array.
- * @height: height of the array.
- * Return: pointer of an array of integers
+/**
+ * str_concat - A function that concatenates two strings
+ * @s1: An input pointer of the first string
+ * @s2: An input pointer of the second string
+ * Return: Apointer to concatened strings or NULL if it str is NULL
  */
-
-int **alloc_grid(int width, int height)
-
+char *str_concat(char *s1, char *s2)
 {
+	char *new_str, *starts1, *starts2;
+	int i = 0, lens1 = 0, lens2 = 0;
 
-	int **gridout;
-	int i, j;
-
-
-	if (width < 1 || height < 1)
-		return (NULL);
-	gridout = malloc(height * sizeof(int *));
-	if (gridout == NULL)
-
+	starts1 = s1;
+	starts2 = s2;
+	if (s1 == NULL)
+		s1 = "";
+	while (*s1)
 	{
-
-		free(gridout);
-		return (NULL);
-
+		lens1++;
+		s1++;
 	}
-
-	for (i = 0; i < height; i++)
-
+	s1 = starts1;
+	if (s2 == NULL)
+		s2 = "";
+	while (*s2)
 	{
-
-		gridout[i] = malloc(width * sizeof(int));
-		if (gridout[i] == NULL)
-
+		lens2++;
+		s2++;
+	}
+	s2 = starts2;
+	new_str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	starts1 = new_str;
+	if (new_str == NULL)
+		return (NULL);
+	for (; i < (lens1 + lens2); i++)
+	{
+		if (i < lens1)
 		{
-
-			for (i--; i >= 0; i--)
-				free(gridout[i]);
-			free(gridout);
-			return (NULL);
-
+			new_str[i] = *s1;
+			s1++;
 		}
-
+		else
+		{
+			new_str[i] = *s2;
+			s2++;
+		}
 	}
-
-	for (i = 0; i < height; i++)
-		for (j = 0; j < width; j++)
-			gridout[i][j] = 0;
-	return (gridout);
-
-}
-
-
+	new_str[i] = '\0';
+	return (starts1);
+ii}
