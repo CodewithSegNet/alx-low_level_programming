@@ -3,40 +3,50 @@
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
- *
- * Return: nothing
- */
-void print_tab(char **tab)
-
+* strtow - concatenates all the arguments of your program
+* @str: array
+* Return: duble pointer
+*/
+char **strtow(char *str)
 {
-	int i;
+	int k = 0, i = 0, count = 0, height = 0, word = 0;
+	char **p;
 
-
-	for (i = 0; tab[i] != NULL; ++i)
+	if (str == 0 || *str == 0)
+		return (NULL);
+	while (str[i] != '\0')
 	{
-		printf("%s\n", tab[i]);
+		count++;
+		if (str[i] != 32 && (str[i + 1] == 32 || str[i + 1] == '\0'))
+		{ height++; }
+	i++;
 	}
-}
-
-/**
- * main - check the code for ALX School students.
- *
- * Return: 1 if an error occurred, 0 otherwise
- */
-int main(void)
-
-{
-	char **tab;
-
-
-	tab = strtow("      ALX School         #cisfun      ");
-	if (tab == NULL)
+	if (height == 0)
+		return (NULL);
+	p = (char **)malloc(sizeof(char *) * (height + 1));
+	if (p == NULL)
+		return (NULL);
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
 	{
-		printf("Failed\n");
-		return (1);
+		if (str[i] != 32)
+		count++;
+		if (count > 0 && (str[i + 1] == 32 || str[i + 1] == '\0'))
+		{
+			p[word] = (char *)malloc((count + 1) * sizeof(char));
+			if (p[word] == NULL)
+			return (NULL);
+			for (k = 0; k < count; k++)
+			{
+				p[word][k] = str[i - count + 1 + k];
+			}
+			p[word][k] = '\0';
+			word++;
+			count = 0;
+		}
+		i++;
 	}
-	print_tab(tab);
-	return (0);
+	p[height] = '\0';
+	return (p);
 }
