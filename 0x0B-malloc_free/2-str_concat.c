@@ -1,47 +1,56 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
-/**
- * str_concat - Entry point
- *@s1: string 1
- *@s2: string 2
- * Return: pointer should point to a newly allocated space in memory or NULL
+/*
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: width of the array.
+ * @height: height of the array.
+ * Return: pointer of an array of integers
  */
 
-char *str_concat(char *s1, char *s2)
+int **alloc_grid(int width, int height)
 
 {
 
-	char *strnew = NULL;
-	unsigned int i;
-	int n1;
-	int n2;
-	int count;
+	int **gridout;
+	int i, j;
 
 
-
-	count = 0;
-
-	if (s1 == NULL)
-		s1 = ";
-	if (s2 == NULL)
-		s2 = "";
-	for (n1 = 0; s1[n1] != '\0'; n1++)
-		;
-	for (n2 = 0; s2[n2] != '\0'; n2++)
-		;
-	strnew = (char *)malloc((n1 + n2 + 1) * sizeof(char));
-	if (strnew == NULL)
-	{
+	if (width < 1 || height < 1)
 		return (NULL);
-	}
-	for (i = 0; s1[i] != '\0'; i++)
-		strnew[i] = s1[i];
-	for (; s2[count] != '\0'; i++)
+	gridout = malloc(height * sizeof(int *));
+	if (gridout == NULL)
+
 	{
-		strnew[i] = s2[count];
-		count++;
+
+		free(gridout);
+		return (NULL);
+
 	}
-	return (strnew);
+
+	for (i = 0; i < height; i++)
+
+	{
+
+		gridout[i] = malloc(width * sizeof(int));
+		if (gridout[i] == NULL)
+
+		{
+
+			for (i--; i >= 0; i--)
+				free(gridout[i]);
+			free(gridout);
+			return (NULL);
+
+		}
+
+	}
+
+	for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
+			gridout[i][j] = 0;
+	return (gridout);
+
 }
+
+
