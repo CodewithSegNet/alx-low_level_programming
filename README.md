@@ -2,7 +2,7 @@
 <div align=center>  
     <img  
     style="text-align:center"  
-    src="https://raw.githubusercontent.com/coding-max/hbtn_config/main/assets/head_low-level.png"  
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=Alx%20Software%20Engineering&fontSize=70"
     alt="Alx Software Engineering"/>  
 </div>
 
