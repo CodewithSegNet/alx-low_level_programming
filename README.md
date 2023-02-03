@@ -1,16 +1,30 @@
-### ALX-Software Engineering Program
 
 
-   
-         _____     ______     _____  _____  
-        /  _  \    |    |     \    \/    / 
-       /  /_\  \   |    |      \   ||   /   
-      /    |    \  |    |___   /   ||   \   
-     /  __/ \__  \ |___ _ ___\/    /\    \  
-    /____/   \____\|_________/____/  \    \
-                                       \____\
- 
-# Low Level Programming
+
+![img](https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png)
+
+# C is FUN 😊
+
+>Learning C right now, been wanting to get on this. It's going to be FUN !!.
+
+<p align="center">
+  <img src="https://i.postimg.cc/rprHShJ1/C-compilation-process.gif" />
+</p>
+
+## About
+
+- This repository consists of all the C programming projects done with [ALX Africa](https://www.alxafrica.com/) Full stack Software Engineering course in partnership with [Holberton School](https://www.holbertonschool.com/) by [Segnet](https://https://github.com/CodewithSegNet/).
+- All main.c files are prewritten by the school. We build functions that produce a specific output while also taking into consideration edge case's
+
+---
+
+- C is fun but its not that easy, so I have some [notes](./notes.md) that will actually show you the journey and thought process.
+
+## Resource
+
+- C [Books and PDF's](./references) to check out and use as a 
+
+---
 
 ### Hatching out  
 
@@ -46,3 +60,13 @@
 
 - [0x15](https://github.com/CodewithSegNet/Alx-low_level_programming/tree/master/0x15-file_io). C - File I/O  
 - [0x16](https://github.com/CodewithSegNet/simple_shell/). C - Simple Shell
+
+---
+
+# More Resources
+
+- [Pointers and Arrays](./PointerArrays) : Code snippets and notes on Pointers and Arrays from Concept Page.
+- [Data Structures](./DataStructures) : Code snippets and notes on data structures.
+- [Dynamic Memory Allocation](./dynamic_memory_alloc) : Code snippets and notes on how dynamic memory allocation works with `malloc` and `free`.
+- [Heap vs Stack](./heap_stack) : Code snippets and notes on what is a heap, a stack and how they work.
+- [Simple Shell Concepts](./simple_shell_concepts) : Code snippets and notes on the concept for the simple shell project. Low Level Programming
