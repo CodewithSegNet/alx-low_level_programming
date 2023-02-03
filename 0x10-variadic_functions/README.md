@@ -1,8 +1,8 @@
-0x10. C - Variadic functions
+# 0x10. C - Variadic functions
 
 Foundations - Low-level programming & Algorithm ― Hatching out
 
-General
+## General
 
 What are variadic functions
 
@@ -10,13 +10,13 @@ How to use va_start, va_arg and va_end macros
 
 Why and how to use the const type qualifier
 
-C - Variable Arguments
+# C - Variable Arguments
 
 Sometimes, you may come across a situation, when you want to have a function, which can take variable number of arguments, i.e., parameters, instead of predefined number of parameters. The C programming language provides a solution for this situation and you are allowed to define a function which can accept variable number of parameters based on your requirement. The following example shows the definition of such a function.
 
 
 
-Alt
+# Alt
 
 
 
